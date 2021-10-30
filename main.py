@@ -21,6 +21,10 @@ role_id = int(os.getenv('ROLE_ID'))
 
 logString = sys.argv[1]
 
+username_dict = {
+    "076561198055834108": "Trevor"
+}
+
 @client.event
 async def on_ready():
     # print(f'{client.user} has connected to Discord!')
@@ -43,9 +47,17 @@ async def on_ready():
     role = discord.utils.find(lambda x : x.id == role_id, server.roles)
     # print(role)
     # print(logString)
-    if match := re.search(r"Join succeeded: (.*)", logString):
-        print(match.groups()[0])
-        await channel.send(f"{role.mention} {match.groups()[0]} just logged in!")
+    if match := re.search(r"Beacon Join .*?(\d+)", logString):
+        user_id = match.groups()[0]
+        print(role.mention)
+        print(user_id)
+        if user_id in username_dict:
+            # print(username_dict[user_id])
+            await channel.send(f"{role.mention} {username_dict[user_id]} just logged in!")
+        else:
+            # print("Unknown user")
+            await channel.send(f"{role.mention} Unknown user: {user_id} just logged in!")
+
 
     await client.close()
 
