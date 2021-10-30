@@ -22,7 +22,8 @@ role_id = int(os.getenv('ROLE_ID'))
 logString = sys.argv[1]
 
 username_dict = {
-    "076561198055834108": "Trevor"
+    "076561198055834108": "Trevor",
+    "39773": "Brian",
 }
 
 @client.event
