@@ -31,6 +31,8 @@ To test the app's ability to turn logs into discord messages, execute this test 
 
 `python main.py "[2021.10.30-02.26.16:635][206]LogBeacon: Beacon Join FGServerBeaconClient STEAM:(STEAM)-439304572947329445"`
 
+You can now use the numbers that appear in these "unknown user" messages to populate the `username_dict` in the code. 
+
 ## Triggering the discord notifier with swatchdog
 
 Install swatchdog on your server, more info here: https://www.tecmint.com/swatch-linux-log-file-watcher/. 
