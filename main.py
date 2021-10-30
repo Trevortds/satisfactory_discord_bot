@@ -5,7 +5,12 @@ from discord.client import _ClientEventTask
 from dotenv import load_dotenv
 import re
 
-load_dotenv()
+# Get the path to the directory this file is in
+BASEDIR = os.path.abspath(os.path.dirname(__file__))
+
+# Connect the path with your '.env' file name
+load_dotenv(os.path.join(BASEDIR, '.env'))
+
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 client = discord.Client()
@@ -21,17 +26,13 @@ async def on_ready():
     print(f'{client.user} has connected to Discord!')
 
     server = discord.utils.find(lambda g: g.id == server_id, client.guilds)
-    for guild in client.guilds:
-        print(dir(guild))
-        print(guild.id)
-
-        print(
-            f'{client.user} is connected to the following guild:\n'
-            f'{guild.name}(id: {guild.id})'
-        )
-
-        if guild.id == server_id:
-            server = guild
+    # for guild in client.guilds:
+    #     print(
+    #         f'{client.user} is connected to the following guild:\n'
+    #         f'{guild.name}(id: {guild.id})'
+    #     )
+    #     if guild.id == server_id:
+    #         server = guild
 
     print(server.id)
     print(server.channels)
@@ -39,7 +40,7 @@ async def on_ready():
     channel = discord.utils.find(lambda x: x.id == bot_test, server.channels)
     print(channel)
     print(server.roles)
-    role = discord.utils.find(lambda x : "new" in x.name, server.roles)
+    role = discord.utils.find(lambda x : "factory" in x.name.lower(), server.roles)
     print(role)
     print(logString)
     if match := re.search(r"Join succeeded: (.*)", logString):
