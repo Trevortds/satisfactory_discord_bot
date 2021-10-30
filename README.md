@@ -1,5 +1,7 @@
 # satisfactory_discord_bot
 
+![bot in chatroom saying that trevor is online](https://i.imgur.com/dK2NyQK.png)
+
 ## Setup 
 
 You will first need a satisfactory server using systemd, as in the [wiki](https://satisfactory.fandom.com/wiki/Dedicated_servers#.5BLinux.5D_SystemD), as well as a discord bot with channel write permisions, for example as following the first half of [this guide](https://realpython.com/how-to-make-a-discord-bot-python/#creating-an-application).
