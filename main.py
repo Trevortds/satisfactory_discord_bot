@@ -24,6 +24,7 @@ logString = sys.argv[1]
 username_dict = {
     "076561198055834108": "Trevor",
     "39773": "Brian",
+    "4": "Jared"
 }
 
 @client.event
